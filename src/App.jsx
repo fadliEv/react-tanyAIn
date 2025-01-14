@@ -13,8 +13,8 @@ function App() {
     getResponseForGivenPrompt,
   } = useChatService();
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
       getResponseForGivenPrompt();
     }
   };
@@ -37,6 +37,7 @@ function App() {
           setInputValue={setInputValue}
           getResponseForGivenPrompt={getResponseForGivenPrompt}
           handleKeyPress={handleKeyPress}
+          loading={loading}
         />
       </div>
     </div>
