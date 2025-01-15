@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_KEY_AI=${VITE_KEY_AI}        
+    container_name: react-tanyAIn
+    restart: unless-stopped
+    ports:
+        - "8083:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    environment:
+      - VITE_KEY_AI=${VITE_KEY_AI}
